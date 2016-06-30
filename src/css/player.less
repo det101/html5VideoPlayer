@@ -1,0 +1,65 @@
+@width:960px;
+@height:582px;
+
+@videoW: @width - 200px;
+@videoH: @height - 68px;
+
+
+body
+{
+    width: @width;
+    height: @height;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#player{
+   width: @width;
+   height: @height;
+   display: block;
+   position: relative;
+
+  #leftPlayer
+  {
+      #notify{
+        width: @width - 200px;
+        height: 40px;
+        background-color: #00AA00;
+        display: block;
+        position: relative;
+      }
+
+      #video{
+        width: @videoW;
+        height: @videoH;
+      }
+
+      #controller{
+        height: 30px;
+        width: @videoW;
+        bottom: 38px;
+        position: absolute;
+        background-color: #6f1400;
+      }
+
+      #userInput{
+        height: 38px;
+        width: @videoW;
+        bottom: 0px;
+        position: absolute;
+        background-color: #81be00;
+      }
+  }
+
+  #danmuSet{
+    width: 200px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: #0000AA;
+  }
+
+}
+

@@ -1,0 +1,46 @@
+body {
+  width: 960px;
+  height: 582px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#player {
+  width: 960px;
+  height: 582px;
+  display: block;
+  position: relative;
+}
+#player #notify {
+  width: 760px;
+  height: 40px;
+  background-color: #00AA00;
+  display: block;
+  position: relative;
+}
+#player #danmuSet {
+  width: 200px;
+  height: 100%;
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-color: #0000AA;
+}
+#player #video {
+  width: 760px;
+  height: 514px;
+}
+#player #controller {
+  height: 30px;
+  width: 760px;
+  bottom: 38px;
+  position: absolute;
+  background-color: #6f1400;
+}
+#player #userInput {
+  height: 38px;
+  width: 760px;
+  bottom: 0px;
+  position: absolute;
+  background-color: #81be00;
+}
