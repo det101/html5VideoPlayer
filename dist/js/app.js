@@ -1,1 +1,1 @@
-"use strict";function demo(e){alert("--------\r\n"+e+"\r\n--------")}demo("Hi Hello World!");var Test=require("./Test.js"),t=new Test;t.logTest();
+"use strict";function demo(e){console.log("test"),alert("--------\r\n"+e+"\r\n--------")}demo("Hi Hello World!");var Test=require("./Test.js"),t=new Test;t.logTest();

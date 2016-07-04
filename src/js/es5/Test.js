@@ -21,3 +21,5 @@ var S = function () {
 
     return S;
 }();
+
+module.exports = S;
