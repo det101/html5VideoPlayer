@@ -1,1 +1,1 @@
-function demo(o){alert("--------\r\n"+o+"\r\n--------")}demo("Hi Hello World!");
+"use strict";function demo(e){alert("--------\r\n"+e+"\r\n--------")}demo("Hi Hello World!");var Test=require("./Test.js"),t=new Test;t.logTest();

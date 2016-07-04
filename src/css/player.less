@@ -2,7 +2,7 @@
 @height:582px;
 
 @videoW: @width - 200px;
-@videoH: @height - 68px;
+@videoH: @height - 108px;
 
 
 body
@@ -21,8 +21,9 @@ body
 
   #leftPlayer
   {
+      width: @videoW;
       #notify{
-        width: @width - 200px;
+        width: 100%;
         height: 40px;
         background-color: #00AA00;
         display: block;
@@ -30,21 +31,25 @@ body
       }
 
       #video{
-        width: @videoW;
+        width: 100%;
         height: @videoH;
+        video{
+          width: 100%;
+          height: @videoH;
+        }
       }
 
       #controller{
+        width: 100%;
         height: 30px;
-        width: @videoW;
         bottom: 38px;
         position: absolute;
         background-color: #6f1400;
       }
 
       #userInput{
+        width: 100%;
         height: 38px;
-        width: @videoW;
         bottom: 0px;
         position: absolute;
         background-color: #81be00;

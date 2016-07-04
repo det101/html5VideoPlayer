@@ -10,12 +10,37 @@ body {
   display: block;
   position: relative;
 }
-#player #notify {
+#player #leftPlayer {
   width: 760px;
+}
+#player #leftPlayer #notify {
+  width: 100%;
   height: 40px;
   background-color: #00AA00;
   display: block;
   position: relative;
+}
+#player #leftPlayer #video {
+  width: 100%;
+  height: 474px;
+}
+#player #leftPlayer #video video {
+  width: 100%;
+  height: 474px;
+}
+#player #leftPlayer #controller {
+  width: 100%;
+  height: 30px;
+  bottom: 38px;
+  position: absolute;
+  background-color: #6f1400;
+}
+#player #leftPlayer #userInput {
+  width: 100%;
+  height: 38px;
+  bottom: 0px;
+  position: absolute;
+  background-color: #81be00;
 }
 #player #danmuSet {
   width: 200px;
@@ -25,22 +50,4 @@ body {
   right: 0px;
   top: 0px;
   background-color: #0000AA;
-}
-#player #video {
-  width: 760px;
-  height: 514px;
-}
-#player #controller {
-  height: 30px;
-  width: 760px;
-  bottom: 38px;
-  position: absolute;
-  background-color: #6f1400;
-}
-#player #userInput {
-  height: 38px;
-  width: 760px;
-  bottom: 0px;
-  position: absolute;
-  background-color: #81be00;
 }

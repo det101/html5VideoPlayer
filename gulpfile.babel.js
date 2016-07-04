@@ -2,7 +2,8 @@
 
 import gulp from 'gulp';
 import uglify from 'gulp-uglify';
-import less from  'gulp-less'
+import less from  'gulp-less';
+import babel from 'gulp-babel';
 
 const paths = {
     less: 'src/css/',
@@ -10,10 +11,15 @@ const paths = {
     src: 'src/'
 };
 
+gulp.task("es5", function(){
+    gulp.src(`${paths.src}js/es6/**/*.js`)
+        .pipe(babel())
+        .pipe(gulp.dest(`${paths.src}js/es5/`));
+})
 
 gulp.task('script', function() {
     // 1. 找到文件
-    gulp.src(`${paths.src}js/*.js`)
+    gulp.src(`${paths.src}js/es5/**/*.js`)
         // 2. 压缩文件
         .pipe(uglify())
         // 3. 另存压缩后的文件
@@ -32,4 +38,4 @@ gulp.task('auto', function () {
     gulp.watch(`${paths.less}*.less`, ['less']);
 });
 
-gulp.task('default' , [ 'script', 'less', 'auto']);
+gulp.task('default' , ['es5', 'script', 'less', 'auto']);//, 'script', 'less', 'auto'
