@@ -4,6 +4,13 @@ import gulp from 'gulp';
 import uglify from 'gulp-uglify';
 import less from  'gulp-less';
 import babel from 'gulp-babel';
+import browserify from 'browserify';
+import babelify from 'babelify';
+import util from  'gulp-util';
+import buffer from 'vinyl-buffer';
+import source from 'vinyl-source-stream';
+import sourcemaps from  'gulp-sourcemaps';
+
 
 const paths = {
     less: 'src/css/',
@@ -38,4 +45,19 @@ gulp.task('auto', function () {
     gulp.watch(`${paths.less}*.less`, ['less']);
 });
 
-gulp.task('default' , ['es5', 'script', 'less', 'auto']);//, 'script', 'less', 'auto'
+
+gulp.task('build', function() {
+    browserify('src/js/es6/app.js', { debug: true })
+        .add(require.resolve('babel-polyfill'))
+        .transform(babelify)
+        .bundle()
+        .on('error', util.log.bind(util, 'Browserify Error'))
+        .pipe(source('app.js'))
+        .pipe(buffer())
+        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(uglify({ mangle: false }))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('default' , ['es5', 'script', 'less', 'auto', 'build']);//, 'script', 'less', 'auto'
