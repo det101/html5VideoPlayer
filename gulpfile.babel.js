@@ -10,6 +10,7 @@ import util from  'gulp-util';
 import buffer from 'vinyl-buffer';
 import source from 'vinyl-source-stream';
 import sourcemaps from  'gulp-sourcemaps';
+import jshint from 'gulp-jshint';
 
 
 const paths = {
@@ -27,6 +28,8 @@ gulp.task("es5", function(){
 gulp.task('script', function() {
     // 1. 找到文件
     gulp.src(`${paths.src}js/es5/**/*.js`)
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
         // 2. 压缩文件
         .pipe(uglify())
         // 3. 另存压缩后的文件
@@ -41,12 +44,17 @@ gulp.task('less', function() {
 
 gulp.task('auto', function () {
     // 监听文件修改，当文件被修改则执行 script 任务
-    gulp.watch(`${paths.src}/js/*.js`, ['script']);
+    console.log("修改")
+
     gulp.watch(`${paths.less}*.less`, ['less']);
+    gulp.watch(`${paths.src}/js/es6/*.js`, ['build']);
 });
 
 
+
+
 gulp.task('build', function() {
+    console.log("build");
     browserify('src/js/es6/app.js', { debug: true })
         .add(require.resolve('babel-polyfill'))
         .transform(babelify)
@@ -60,4 +68,4 @@ gulp.task('build', function() {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('default' , ['es5', 'script', 'less', 'auto', 'build']);//, 'script', 'less', 'auto'
+gulp.task('default' , [ 'script', 'less', 'auto', 'build']);//, 'script', 'less', 'auto'

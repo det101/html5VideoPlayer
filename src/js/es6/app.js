@@ -1,6 +1,9 @@
 /**
  * Created by bilibili_ on 2016/6/15.
  */
+
+"use strict"
+
 function demo (msg) {
     console.log("test");
 }
@@ -51,3 +54,12 @@ uInt16View[0] = 0xff05; // 字节变为[0x05, 0xFF, 0x03, 0x07]
 uInt16View[1] = 0x0210; // 字节变为[0x05, 0xFF, 0x10, 0x02]
 
 console.log(1e3, 5e3);
+
+import $ from 'jquery';
+
+$(document).ready(function(){
+    $(document).on("click", function(e){
+        console.log("==>"+e)
+
+    })
+})
